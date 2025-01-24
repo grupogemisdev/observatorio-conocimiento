@@ -3,11 +3,12 @@ package utn.observatorioconocimiento.batch
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing
+import org.springframework.batch.core.configuration.annotation.StepBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepScope
 import org.springframework.batch.core.job.builder.JobBuilder
 import org.springframework.batch.core.launch.support.RunIdIncrementer
 import org.springframework.batch.core.repository.JobRepository
-import org.springframework.batch.core.step.builder.StepBuilder
 import org.springframework.batch.item.data.RepositoryItemWriter
 import org.springframework.batch.item.data.builder.RepositoryItemWriterBuilder
 import org.springframework.batch.item.json.JacksonJsonObjectReader
@@ -25,12 +26,15 @@ import java.io.FileInputStream
 
 
 @Configuration
+@EnableBatchProcessing
 class OrganizacionesBatchJobDefinition {
 
+
     @Bean
-    fun organizacionesJob(jobRepository: JobRepository, organizacionesStep: Step): Job {
+    fun organizacionesJob(organizacionesStep: Step, jobRepository: JobRepository): Job {
         // Job ->* Step -> Reader (json) -> Processor -> Writer (DB)
-        return JobBuilder("organizacionesJob", jobRepository)
+        return JobBuilder("organizacionesJob")
+            .repository(jobRepository)
             .incrementer(RunIdIncrementer())
             .start(organizacionesStep)
             .build()
@@ -38,14 +42,15 @@ class OrganizacionesBatchJobDefinition {
 
     @Bean
     fun organizacionesStep(
-        jobRepository: JobRepository,
+        stepBuilderFactory: StepBuilderFactory,
         transactionManager: PlatformTransactionManager,
         organizacionesItemReader: JsonItemReader<Organizacion>,
         organizacionItemWriter: RepositoryItemWriter<Organizacion>,
         @Value("\${app.batch.chunk.size}") chunkSize: Int
     ): Step {
-        return StepBuilder("organizacionesStep", jobRepository)
-            .chunk<Organizacion, Organizacion>(chunkSize, transactionManager)
+        return stepBuilderFactory.get("organizacionesStep")
+            .transactionManager(transactionManager)
+            .chunk<Organizacion, Organizacion>(chunkSize)
             .reader(organizacionesItemReader)
             .processor(PassThroughItemProcessor()) // No es necesario transformar el objeto
             .writer(organizacionItemWriter)

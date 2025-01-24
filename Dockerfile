@@ -1,10 +1,10 @@
 ### Build
-FROM amazoncorretto:21.0.4-alpine AS builder
+FROM amazoncorretto:11-alpine AS builder
 COPY . /
 RUN ./gradlew clean build
 
 #### Run
-FROM amazoncorretto:21.0.4-alpine
+FROM amazoncorretto:11-alpine
 RUN apk update && \
     apk --no-cache add tzdata; \
     cp /usr/share/zoneinfo/America/Argentina/Buenos_Aires /etc/localtime; \

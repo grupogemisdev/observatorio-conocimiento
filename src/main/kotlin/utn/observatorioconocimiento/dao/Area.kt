@@ -1,6 +1,6 @@
 package utn.observatorioconocimiento.dao
 
-import jakarta.persistence.*
+import javax.persistence.*
 
 
 @Entity

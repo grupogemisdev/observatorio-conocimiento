@@ -1,6 +1,6 @@
 package utn.observatorioconocimiento.dao
 
-import jakarta.persistence.Embeddable
+import javax.persistence.Embeddable
 
 @Embeddable
 data class Ubicacion(
