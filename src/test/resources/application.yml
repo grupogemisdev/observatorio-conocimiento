@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: observatorio-conocimiento-api
+  batch:
+    job:
+      enabled: false
+
+app:
+  batch:
+    chunk:
+      size: 10

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: observatorio-conocimiento-api
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/observatorio_conocimiento?useSSL=false&serverTimezone=UTC
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  batch:
+    job:
+      enabled: false
+
+app:
+  batch:
+    chunk:
+      size: 10
+
+management:
+  endpoints:
+    web.exposure.include: 'health, metrics'
+  endpoint:
+    health.probes.enabled: true

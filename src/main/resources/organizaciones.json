@@ -1,0 +1,94 @@
+[
+  {
+    "nombre": "ARCOR",
+    "ubicacion": {
+      "latitud": "12.43594034",
+      "longitud": "-14.184595"
+    },
+    "sector_organizacional": "EMPRESA",
+    "medicion": {
+      "nivel": "4",
+      "areas": [
+        {
+          "nombre": "individuos",
+          "nivel": "3",
+          "subareas": [
+            {
+              "nombre": "liderazgo",
+              "nivel": "3"
+            },
+            {
+              "nombre": "motivacion",
+              "nivel": "4"
+            }
+          ]
+        },
+        {
+          "nombre": "tecnologia",
+          "nivel": "4",
+          "subareas": [
+            {
+              "nombre": "gobernanza",
+              "nivel": "3"
+            },
+            {
+              "nombre": "uso",
+              "nivel": "4"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "nombre": "FIAT",
+    "ubicacion": {
+      "latitud": "12.300",
+      "longitud": "-12.10034"
+    },
+    "sector_organizacional": "EMPRESA",
+    "medicion": {
+      "nivel": "10",
+      "areas": [
+        {
+          "nombre": "individuos",
+          "nivel": "3",
+          "subareas": [
+            {
+              "nombre": "liderazgo",
+              "nivel": "3"
+            },
+            {
+              "nombre": "motivación",
+              "nivel": "4"
+            }
+          ]
+        },
+        {
+          "nombre": "fabricación",
+          "nivel": "1",
+          "subareas": [
+            {
+              "nombre": "planta",
+              "nivel": "3"
+            },
+            {
+              "nombre": "distribución",
+              "nivel": "1",
+              "subareas": [
+                {
+                  "nombre": "interior",
+                  "nivel": "1"
+                },
+                {
+                  "nombre": "exterior",
+                  "nivel": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
