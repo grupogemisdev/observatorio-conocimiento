@@ -1,12 +1,14 @@
 version: "3"
 services:
   db-api:
-    image: mysql:8
+    image: postgres:17-alpine
+    shm_size: 128mb
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: observatorio_conocimiento
+      POSTGRES_DB: observatorio_conocimiento
+      POSTGRES_USER: observatorio_conocimiento
+      POSTGRES_PASSWORD: root
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
       - db-api:/var/lib/mysql
       - ./src/main/resources/sql/schema.sql:/docker-entrypoint-initdb.d/1.sql

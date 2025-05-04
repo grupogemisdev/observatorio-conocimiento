@@ -2,5 +2,5 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/observatorio_conocimiento?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
-    username: root
+    username: observatorio_conocimiento
     password: root
