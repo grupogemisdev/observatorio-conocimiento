@@ -28,7 +28,7 @@ Para luego eliminar el contenedor y borrar el volumen
 
 Para levantar una BD con Docker pero independiente de este proyecto:
 ``` shell
-> docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -v /var/lib/mysql:/var/lib/mysql -p 3306:3306 -d mysql:8
+> docker run --name somepostgres -e POSTGRES_PASSWORD=root -e POSTGRES_USER=observatorio_conocimiento -e POSTGRES_DB=observatorio_conocimiento -p 5432:5432 -d postgres:17-alpine
 ```
 
 Si todo salió bien, iniciá la app con perfil local y las variables de entorno correspondientes

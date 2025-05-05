@@ -2,7 +2,7 @@ spring:
   application:
     name: observatorio-conocimiento-api
   datasource:
-    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/observatorio_conocimiento?useSSL=false&serverTimezone=UTC
+    url: jdbc:postgres://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&serverTimezone=UTC
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
   batch:
