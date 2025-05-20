@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-@CrossOrigin
+@CrossOrigin(originPatterns = ["http://localhost:[*]", "https://*.awsapprunner.com"])
 class OrganizacionRestController(
     private val organizacionRepository: OrganizacionRepository
 ) {

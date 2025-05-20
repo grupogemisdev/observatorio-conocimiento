@@ -15,7 +15,7 @@ import java.nio.file.Files
 import java.nio.file.Paths
 
 @RestController
-@CrossOrigin
+@CrossOrigin(originPatterns = ["http://localhost:[*]", "https://*.awsapprunner.com"])
 class OrganizacionFileController(
     private val jobService: BatchJobService
 ) {
