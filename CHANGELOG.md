@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.3] - 2025-05-19
+### Changed
+- Agrego CrossOrigin a los controllers para permitir requests desde el front o cualquier origen web. En el futuro, restringir un poco esta regla.
+
 ## [1.0.2] - 2025-05-04
 ### Changed
 - Cambio a drivers de BD Postgres.

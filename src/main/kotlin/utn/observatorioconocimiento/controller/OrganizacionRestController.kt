@@ -5,11 +5,13 @@ import utn.observatorioconocimiento.dao.Organizacion
 import utn.observatorioconocimiento.dao.repository.OrganizacionRepository
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
+@CrossOrigin
 class OrganizacionRestController(
     private val organizacionRepository: OrganizacionRepository
 ) {
