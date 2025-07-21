@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.4] - 2025-07-20
+### Changed
+- Changed properties to reduce DB requests.
+
 ## [1.0.3] - 2025-05-19
 ### Changed
 - Agrego CrossOrigin a los controllers para permitir requests desde el front o cualquier origen web. En el futuro, restringir un poco esta regla.
